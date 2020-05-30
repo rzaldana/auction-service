@@ -53,7 +53,9 @@ functions:
     processAuctions:
       handler: src/handlers/processAuctions.handler
       events:
-        - schedule: rate(1 minute)
+        - http:
+            method: GET
+            path: /auctions/process
 
 custom:
   AuctionsTable:
